@@ -11,9 +11,9 @@ export default function Reviews() {
   return (
     <div>
       <ul>
-        {reviews ? (
+        {reviews.length !== 0 ? (
           reviews.map((review, index) => (
-            <li key={index}>
+            <li className="list-group-item" key={index}>
               <h2>Author: {review.author}</h2>
               <p>{review.content}</p>
             </li>

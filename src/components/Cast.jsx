@@ -13,13 +13,26 @@ export default function Cast() {
   return (
     <div>
       <ul>
-        {actors.map((actor, index) => (
-          <li key={index}>
-            <img src={actor.profile_path} alt={actor.name} />
-            <h2>{actor.name}</h2>
-            <h3>{actor.character}</h3>
-          </li>
-        ))}
+        {actors.length !== 0 ? (
+          actors.map((actor, index) => (
+            <li className="list-group-item" key={index}>
+              <img
+                src={
+                  actor.profile_path !== null
+                    ? `https://image.tmdb.org/t/p/w500${actor.profile_path}`
+                    : `https://placehold.co/150x250/orange/white?text=There+no+image`
+                }
+                alt={actor.name}
+                width={150}
+                height={250}
+              />
+              <h2>{actor.name}</h2>
+              <h3>Character: {actor.character}</h3>
+            </li>
+          ))
+        ) : (
+          <div>There are not actors</div>
+        )}
       </ul>
     </div>
   );

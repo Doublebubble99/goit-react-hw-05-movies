@@ -9,10 +9,14 @@ export default function Home() {
   }, []);
   return (
     <div>
-      <h1>Trending today</h1>
-      <ul>
+      <h2 className="mb-1">Trending today</h2>
+      <ul className="list-group">
         {results.map(res => (
-          <li key={res.id}>
+          <li
+            className="list-group-item list-group-item-action"
+            key={res.id}
+            aria-current="true"
+          >
             <NavLink to={`movies/${res.id}`} state={{ from: location }}>
               {res.title}
             </NavLink>

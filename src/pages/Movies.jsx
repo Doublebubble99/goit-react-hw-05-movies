@@ -24,13 +24,28 @@ export default function Movies() {
   }, [query]);
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={value} onChange={handleChange} />
-        <button type="submit">Search</button>
+      <form onSubmit={handleSubmit} className="row g-3">
+        <div className="col-auto">
+          <input
+            type="text"
+            value={value}
+            className="form-control"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="col-auto">
+          <button type="submit" className="btn btn-primary mb-3">
+            Search
+          </button>
+        </div>
       </form>
-      <ul>
+      <ul className="list-group">
         {movies.map(movie => (
-          <li key={movie.id}>
+          <li
+            key={movie.id}
+            className="list-group-item list-group-item-action"
+            aria-current="true"
+          >
             <NavLink to={`${movie.id}`} state={{ from: location }}>
               {movie.title}
             </NavLink>
